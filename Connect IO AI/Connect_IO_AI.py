@@ -102,21 +102,21 @@ while user_input!=0:
                 sensor_data=""
     
                 #making cereal 
-                cabinet_door = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"cabinet_door:ON"+", "
-                time_lapses.append(random.randint(12,24)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                cabinet_door.Value = not cabinet_door.Value; sensor_data=sensor_data+"cabinet_door:OFF"+", "
-                time_lapses.append(random.randint(15,21)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                fridge_door = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"fridge_door:ON"+", "
-                time_lapses.append(random.randint(68,82)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                fridge_door.Value = not fridge_door.Value; sensor_data=sensor_data+"fridge_door:OFF"+", "
-                time_lapses.append(random.randint(4,8)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                kitchen_draw = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"kitchen_draw:ON"+", "
-                time_lapses.append(random.randint(4,8)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                kitchen_draw.Value = not kitchen_draw.Value; sensor_data=sensor_data+"kitchen_draw:OFF"+", "
-                time_lapses.append(random.randint(4,8)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                dining_chair = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"dining_chair:ON"+", "
-                time_lapses.append(random.randint(150,340)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                dining_chair.Value = not dining_chair.Value; sensor_data=sensor_data+"dining_chair:OFF"+", "
+                cabinet_door = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"cabinet_door:ON"+"; "
+                time_lapses.append(random.randint(12,24)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                cabinet_door.Value = not cabinet_door.Value; sensor_data=sensor_data+"cabinet_door:OFF"+"; "
+                time_lapses.append(random.randint(15,21)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                fridge_door = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"fridge_door:ON"+"; "
+                time_lapses.append(random.randint(68,82)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                fridge_door.Value = not fridge_door.Value; sensor_data=sensor_data+"fridge_door:OFF"+"; "
+                time_lapses.append(random.randint(4,8)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                kitchen_draw = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"kitchen_draw:ON"+"; "
+                time_lapses.append(random.randint(4,8)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                kitchen_draw.Value = not kitchen_draw.Value; sensor_data=sensor_data+"kitchen_draw:OFF"+"; "
+                time_lapses.append(random.randint(4,8)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                dining_chair = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"dining_chair:ON"+"; "
+                time_lapses.append(random.randint(150,340)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                dining_chair.Value = not dining_chair.Value; sensor_data=sensor_data+"dining_chair:OFF"+"; "
                 
                 time_total=sum(time_lapses)
             
@@ -133,21 +133,21 @@ while user_input!=0:
                 sensor_data=""
     
                 #making sandwich 
-                cabinet_door = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"cabinet_door:ON"+", "
-                time_lapses.append(random.randint(12,24)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                cabinet_door.Value = not cabinet_door.Value; sensor_data=sensor_data+"cabinet_door:OFF"+", "
-                time_lapses.append(random.randint(15,21)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                fridge_door = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"fridge_door:ON"+", "
-                time_lapses.append(random.randint(68,82)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                fridge_door.Value = not fridge_door.Value; sensor_data=sensor_data+"fridge_door:OFF"+", "
-                time_lapses.append(random.randint(4,8)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                kitchen_draw = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"kitchen_draw:ON"+", "
-                time_lapses.append(random.randint(4,8)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                kitchen_draw.Value = not kitchen_draw.Value; sensor_data=sensor_data+"kitchen_draw:OFF"+", "
-                time_lapses.append(random.randint(5*60,7*60)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                dining_chair = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"dining_chair:ON"+", "
-                time_lapses.append(random.randint(150,340)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                dining_chair.Value = not dining_chair.Value; sensor_data=sensor_data+"dining_chair:OFF"+", "
+                cabinet_door = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"cabinet_door:ON"+"; "
+                time_lapses.append(random.randint(12,24)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                cabinet_door.Value = not cabinet_door.Value; sensor_data=sensor_data+"cabinet_door:OFF"+"; "
+                time_lapses.append(random.randint(15,21)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                fridge_door = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"fridge_door:ON"+"; "
+                time_lapses.append(random.randint(68,82)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                fridge_door.Value = not fridge_door.Value; sensor_data=sensor_data+"fridge_door:OFF"+"; "
+                time_lapses.append(random.randint(4,8)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                kitchen_draw = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"kitchen_draw:ON"+"; "
+                time_lapses.append(random.randint(4,8)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                kitchen_draw.Value = not kitchen_draw.Value; sensor_data=sensor_data+"kitchen_draw:OFF"+"; "
+                time_lapses.append(random.randint(5*60,7*60)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                dining_chair = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"dining_chair:ON"+"; "
+                time_lapses.append(random.randint(150,340)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                dining_chair.Value = not dining_chair.Value; sensor_data=sensor_data+"dining_chair:OFF"+"; "
                 
                 time_total=sum(time_lapses)
             
@@ -164,25 +164,25 @@ while user_input!=0:
                 sensor_data=""
     
                 #making pasta 
-                oven_hob = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"oven_hob:ON"+", "
-                time_lapses.append(random.randint(12,15)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                oven_hob.Value = not oven_hob.Value; sensor_data=sensor_data+"oven_hob:OFF"+", "
+                oven_hob = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"oven_hob:ON"+"; "
+                time_lapses.append(random.randint(12,15)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                oven_hob.Value = not oven_hob.Value; sensor_data=sensor_data+"oven_hob:OFF"+"; "
                 
-                cabinet_door = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"cabinet_door:ON"+", "
-                time_lapses.append(random.randint(12,24)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                cabinet_door.Value = not cabinet_door.Value; sensor_data=sensor_data+"cabinet_door:OFF"+", "
-                time_lapses.append(random.randint(15,21)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                fridge_door = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"fridge_door:ON"+", "
-                time_lapses.append(random.randint(68,82)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                fridge_door.Value = not fridge_door.Value; sensor_data=sensor_data+"fridge_door:OFF"+", "
-                time_lapses.append(random.randint(4,8)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                kitchen_draw = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"kitchen_draw:ON"+", "
-                time_lapses.append(random.randint(4,8)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                kitchen_draw.Value = not kitchen_draw.Value; sensor_data=sensor_data+"kitchen_draw:OFF"+", "
-                time_lapses.append(random.randint(5*60,7*60)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                dining_chair = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"dining_chair:ON"+", "
-                time_lapses.append(random.randint(150,340)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                dining_chair.Value = not dining_chair.Value; sensor_data=sensor_data+"dining_chair:OFF"+", "
+                cabinet_door = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"cabinet_door:ON"+"; "
+                time_lapses.append(random.randint(12,24)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                cabinet_door.Value = not cabinet_door.Value; sensor_data=sensor_data+"cabinet_door:OFF"+"; "
+                time_lapses.append(random.randint(15,21)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                fridge_door = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"fridge_door:ON"+"; "
+                time_lapses.append(random.randint(68,82)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                fridge_door.Value = not fridge_door.Value; sensor_data=sensor_data+"fridge_door:OFF"+"; "
+                time_lapses.append(random.randint(4,8)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                kitchen_draw = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"kitchen_draw:ON"+"; "
+                time_lapses.append(random.randint(4,8)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                kitchen_draw.Value = not kitchen_draw.Value; sensor_data=sensor_data+"kitchen_draw:OFF"+"; "
+                time_lapses.append(random.randint(5*60,7*60)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                dining_chair = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"dining_chair:ON"+"; "
+                time_lapses.append(random.randint(150,340)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                dining_chair.Value = not dining_chair.Value; sensor_data=sensor_data+"dining_chair:OFF"+"; "
                 
                 time_total=sum(time_lapses)
             
@@ -199,15 +199,15 @@ while user_input!=0:
                 sensor_data=""
     
                 #personal hygiene
-                bathroom_door = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"bathroom_door:ON"+", "
-                time_lapses.append(random.randint(12,24)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                bathroom_door.Value = not bathroom_door.Value; sensor_data=sensor_data+"bathroom_door:OFF"+", "
-                shower_sensor = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"shower_sensor:ON"+", "
-                time_lapses.append(random.randint(5,20*60)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                shower_sensor.Value = not shower_sensor.Value; sensor_data=sensor_data+"shower_sensor:OFF"+", "
-                bathroom_door = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"bathroom_door:ON"+", "
-                time_lapses.append(random.randint(12,24)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                bathroom_door.Value = not bathroom_door.Value; sensor_data=sensor_data+"bathroom_door:OFF"+", "
+                bathroom_door = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"bathroom_door:ON"+"; "
+                time_lapses.append(random.randint(12,24)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                bathroom_door.Value = not bathroom_door.Value; sensor_data=sensor_data+"bathroom_door:OFF"+"; "
+                shower_sensor = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"shower_sensor:ON"+"; "
+                time_lapses.append(random.randint(5,20*60)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                shower_sensor.Value = not shower_sensor.Value; sensor_data=sensor_data+"shower_sensor:OFF"+"; "
+                bathroom_door = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"bathroom_door:ON"+"; "
+                time_lapses.append(random.randint(12,24)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                bathroom_door.Value = not bathroom_door.Value; sensor_data=sensor_data+"bathroom_door:OFF"+"; "
                 
                 time_total=sum(time_lapses)
             
@@ -224,15 +224,15 @@ while user_input!=0:
                 sensor_data=""
     
                 #bathroom break
-                bathroom_door = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"bathroom_door:ON"+", "
-                time_lapses.append(random.randint(12,24)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                bathroom_door.Value = not bathroom_door.Value; sensor_data=sensor_data+"bathroom_door:OFF"+", "
+                bathroom_door = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"bathroom_door:ON"+"; "
+                time_lapses.append(random.randint(12,24)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                bathroom_door.Value = not bathroom_door.Value; sensor_data=sensor_data+"bathroom_door:OFF"+"; "
                 
-                time_lapses.append(random.randint(45,15*60)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
+                time_lapses.append(random.randint(45,15*60)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
 
-                bathroom_door = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"bathroom_door:ON"+", "
-                time_lapses.append(random.randint(12,24)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                bathroom_door.Value = not bathroom_door.Value; sensor_data=sensor_data+"bathroom_door:OFF"+", "
+                bathroom_door = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"bathroom_door:ON"+"; "
+                time_lapses.append(random.randint(12,24)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                bathroom_door.Value = not bathroom_door.Value; sensor_data=sensor_data+"bathroom_door:OFF"+"; "
                 
                 time_total=sum(time_lapses)
             
@@ -249,9 +249,9 @@ while user_input!=0:
                 sensor_data=""
                 
                 #sleeping
-                bed_sensor = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"bed_sensor:ON"+", "
-                time_lapses.append(random.randint(6*3600,9*3600)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                bed_sensor.Value = not bed_sensor.Value; sensor_data=sensor_data+"bed_sensor:OFF"+", "
+                bed_sensor = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"bed_sensor:ON"+"; "
+                time_lapses.append(random.randint(6*3600,9*3600)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                bed_sensor.Value = not bed_sensor.Value; sensor_data=sensor_data+"bed_sensor:OFF"+"; "
                 
                 time_total=sum(time_lapses)
             
@@ -271,17 +271,17 @@ while user_input!=0:
                 #chance of where to relax
                 relax_spot=random.randint(1,10)
                 if relax_spot >= 1 and relax_spot <=3:
-                    bed_sensor = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"bed_sensor:ON"+", "
-                    time_lapses.append(random.randint(1*1800,2*3600)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                    bed_sensor.Value = not bed_sensor.Value; sensor_data=sensor_data+"bed_sensor:OFF"+", "
+                    bed_sensor = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"bed_sensor:ON"+"; "
+                    time_lapses.append(random.randint(1*1800,2*3600)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                    bed_sensor.Value = not bed_sensor.Value; sensor_data=sensor_data+"bed_sensor:OFF"+"; "
                 elif relax_spot == 4:
-                    dining_chair = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"dining_chair:ON"+", "
-                    time_lapses.append(random.randint(1*1800,2*3600)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                    dining_chair.Value = not dining_chair.Value; sensor_data=sensor_data+"dining_chair:OFF"+", "
+                    dining_chair = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"dining_chair:ON"+"; "
+                    time_lapses.append(random.randint(1*1800,2*3600)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                    dining_chair.Value = not dining_chair.Value; sensor_data=sensor_data+"dining_chair:OFF"+"; "
                 else:
-                    sofa_sensor = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"sofa_sensor:ON"+", "
-                    time_lapses.append(random.randint(1*1800,2*3600)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                    sofa_sensor.Value = not sofa_sensor.Value; sensor_data=sensor_data+"sofa_sensor:OFF"+", "
+                    sofa_sensor = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"sofa_sensor:ON"+"; "
+                    time_lapses.append(random.randint(1*1800,2*3600)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                    sofa_sensor.Value = not sofa_sensor.Value; sensor_data=sensor_data+"sofa_sensor:OFF"+"; "
             
                 time_total=sum(time_lapses)
             
@@ -298,13 +298,13 @@ while user_input!=0:
                 sensor_data=""
                 
                 #watching TV
-                sofa_sensor = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"sofa_sensor:ON"+", "
-                time_lapses.append(random.randint(10,40)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                tv_sensor = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"tv_sensor:ON"+", "
-                time_lapses.append(random.randint(1*1200,2*3600)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                tv_sensor.Value = not tv_sensor.Value; sensor_data=sensor_data+"tv_sensor:OFF"+", "
-                time_lapses.append(random.randint(5,14)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                sofa_sensor.Value = not sofa_sensor.Value; sensor_data=sensor_data+"sofa_sensor:OFF"+", "
+                sofa_sensor = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"sofa_sensor:ON"+"; "
+                time_lapses.append(random.randint(10,40)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                tv_sensor = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"tv_sensor:ON"+"; "
+                time_lapses.append(random.randint(1*1200,2*3600)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                tv_sensor.Value = not tv_sensor.Value; sensor_data=sensor_data+"tv_sensor:OFF"+"; "
+                time_lapses.append(random.randint(5,14)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                sofa_sensor.Value = not sofa_sensor.Value; sensor_data=sensor_data+"sofa_sensor:OFF"+"; "
                 
                 time_total=sum(time_lapses)
             
@@ -321,9 +321,9 @@ while user_input!=0:
                 sensor_data=""
                 
                 #Using treadmill
-                treadmill = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"treadmill:ON"+", "
-                time_lapses.append(random.randint(1800,3600)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                treadmill.Value = not treadmill.Value; sensor_data=sensor_data+"treadmill:OFF"+", "
+                treadmill = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"treadmill:ON"+"; "
+                time_lapses.append(random.randint(1800,3600)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                treadmill.Value = not treadmill.Value; sensor_data=sensor_data+"treadmill:OFF"+"; "
                 
                 time_total=sum(time_lapses)
             
@@ -342,13 +342,13 @@ while user_input!=0:
                 sensor_data=""
                 
                 #working
-                office_chair = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"office_chair:ON"+", "
-                time_lapses.append(random.randint(10,40)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                computer_sensor = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"computer_sensor:ON"+", "
-                time_lapses.append(random.randint(1*3600,8*3600)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                computer_sensor.Value = not computer_sensor.Value; sensor_data=sensor_data+"computer_sensor:OFF"+", "
-                time_lapses.append(random.randint(5,14)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                office_chair.Value = not office_chair.Value; sensor_data=sensor_data+"office_chair:OFF"+", "
+                office_chair = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"office_chair:ON"+"; "
+                time_lapses.append(random.randint(10,40)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                computer_sensor = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"computer_sensor:ON"+"; "
+                time_lapses.append(random.randint(1*3600,8*3600)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                computer_sensor.Value = not computer_sensor.Value; sensor_data=sensor_data+"computer_sensor:OFF"+"; "
+                time_lapses.append(random.randint(5,14)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                office_chair.Value = not office_chair.Value; sensor_data=sensor_data+"office_chair:OFF"+"; "
                 
                 time_total=sum(time_lapses)
             
@@ -366,9 +366,9 @@ while user_input!=0:
                 sensor_data=""
                 
                 #socialising
-                phone_sensor = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"phone_sensor:ON"+", "
-                time_lapses.append(random.randint(300,3600)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                phone_sensor.Value = not phone_sensor.Value; sensor_data=sensor_data+"phone_sensor:OFF"+", "
+                phone_sensor = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"phone_sensor:ON"+"; "
+                time_lapses.append(random.randint(300,3600)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                phone_sensor.Value = not phone_sensor.Value; sensor_data=sensor_data+"phone_sensor:OFF"+"; "
                 
                 time_total=sum(time_lapses)
             
@@ -385,23 +385,23 @@ while user_input!=0:
                 sensor_data=""
                 
                 #Reading
-                bookcase = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"bookcase:ON"+", "
-                time_lapses.append(random.randint(10,60)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                bookcase.Value = not bookcase.Value; sensor_data=sensor_data+"bookcase:OFF"+", "
+                bookcase = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"bookcase:ON"+"; "
+                time_lapses.append(random.randint(10,60)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                bookcase.Value = not bookcase.Value; sensor_data=sensor_data+"bookcase:OFF"+"; "
                 #chance of where to read
                 reading_spot=random.randint(1,10)
                 if reading_spot == 1:
-                    bed_sensor = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"bed_sensor:ON"+", "
-                    time_lapses.append(random.randint(1*1800,2*3600)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                    bed_sensor.Value = not bed_sensor.Value; sensor_data=sensor_data+"bed_sensor:OFF"+", "
+                    bed_sensor = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"bed_sensor:ON"+"; "
+                    time_lapses.append(random.randint(1*1800,2*3600)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                    bed_sensor.Value = not bed_sensor.Value; sensor_data=sensor_data+"bed_sensor:OFF"+"; "
                 elif reading_spot == 2 or reading_spot == 3:
-                    dining_chair = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"dining_chair:ON"+", "
-                    time_lapses.append(random.randint(1*1800,2*3600)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                    dining_chair.Value = not dining_chair.Value; sensor_data=sensor_data+"dining_chair:OFF"+", "
+                    dining_chair = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"dining_chair:ON"+"; "
+                    time_lapses.append(random.randint(1*1800,2*3600)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                    dining_chair.Value = not dining_chair.Value; sensor_data=sensor_data+"dining_chair:OFF"+"; "
                 else:
-                    sofa_sensor = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"sofa_sensor:ON"+", "
-                    time_lapses.append(random.randint(1*1800,2*3600)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                    sofa_sensor.Value = not sofa_sensor.Value; sensor_data=sensor_data+"sofa_sensor:OFF"+", "
+                    sofa_sensor = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"sofa_sensor:ON"+"; "
+                    time_lapses.append(random.randint(1*1800,2*3600)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                    sofa_sensor.Value = not sofa_sensor.Value; sensor_data=sensor_data+"sofa_sensor:OFF"+"; "
             
                 time_total=sum(time_lapses)
             
@@ -418,21 +418,21 @@ while user_input!=0:
                 sensor_data=""
     
                 #making snack 
-                cabinet_door = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"cabinet_door:ON"+", "
-                time_lapses.append(random.randint(12,24)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                cabinet_door.Value = not cabinet_door.Value; sensor_data=sensor_data+"cabinet_door:OFF"+", "
-                time_lapses.append(random.randint(15,21)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                fridge_door = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"fridge_door:ON"+", "
-                time_lapses.append(random.randint(68,82)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                fridge_door.Value = not fridge_door.Value; sensor_data=sensor_data+"fridge_door:OFF"+", "
-                time_lapses.append(random.randint(4,8)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                kitchen_draw = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"kitchen_draw:ON"+", "
-                time_lapses.append(random.randint(4,8)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                kitchen_draw.Value = not kitchen_draw.Value; sensor_data=sensor_data+"kitchen_draw:OFF"+", "
-                time_lapses.append(random.randint(4,8)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                dining_chair = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"dining_chair:ON"+", "
-                time_lapses.append(random.randint(150,340)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                dining_chair.Value = not dining_chair.Value; sensor_data=sensor_data+"dining_chair:OFF"+", "
+                cabinet_door = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"cabinet_door:ON"+"; "
+                time_lapses.append(random.randint(12,24)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                cabinet_door.Value = not cabinet_door.Value; sensor_data=sensor_data+"cabinet_door:OFF"+"; "
+                time_lapses.append(random.randint(15,21)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                fridge_door = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"fridge_door:ON"+"; "
+                time_lapses.append(random.randint(68,82)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                fridge_door.Value = not fridge_door.Value; sensor_data=sensor_data+"fridge_door:OFF"+"; "
+                time_lapses.append(random.randint(4,8)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                kitchen_draw = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"kitchen_draw:ON"+"; "
+                time_lapses.append(random.randint(4,8)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                kitchen_draw.Value = not kitchen_draw.Value; sensor_data=sensor_data+"kitchen_draw:OFF"+"; "
+                time_lapses.append(random.randint(4,8)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                dining_chair = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"dining_chair:ON"+"; "
+                time_lapses.append(random.randint(150,340)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                dining_chair.Value = not dining_chair.Value; sensor_data=sensor_data+"dining_chair:OFF"+"; "
                 
                 time_total=sum(time_lapses)
             
@@ -449,17 +449,17 @@ while user_input!=0:
                 sensor_data=""
     
                 #gardening
-                front_door = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"front_door:ON"+", "
-                time_lapses.append(random.randint(12,24)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                front_door.Value = not front_door.Value; sensor_data=sensor_data+"front_door:OFF"+", "
-                time_lapses.append(random.randint(3*60,4*60)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                hose_sensor = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"hose_sensor:ON"+", "
-                time_lapses.append(random.randint(25*60,35*60)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                hose_sensor.Value = not hose_sensor.Value; sensor_data=sensor_data+"hose_sensor:OFF"+", "
-                time_lapses.append(random.randint(3*60,4*60)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                front_door = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"front_door:ON"+", "
-                time_lapses.append(random.randint(12,24)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                front_door.Value = not front_door.Value; sensor_data=sensor_data+"front_door:OFF"+", "
+                front_door = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"front_door:ON"+"; "
+                time_lapses.append(random.randint(12,24)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                front_door.Value = not front_door.Value; sensor_data=sensor_data+"front_door:OFF"+"; "
+                time_lapses.append(random.randint(3*60,4*60)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                hose_sensor = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"hose_sensor:ON"+"; "
+                time_lapses.append(random.randint(25*60,35*60)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                hose_sensor.Value = not hose_sensor.Value; sensor_data=sensor_data+"hose_sensor:OFF"+"; "
+                time_lapses.append(random.randint(3*60,4*60)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                front_door = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"front_door:ON"+"; "
+                time_lapses.append(random.randint(12,24)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                front_door.Value = not front_door.Value; sensor_data=sensor_data+"front_door:OFF"+"; "
                 
                 
                 time_total=sum(time_lapses)
@@ -477,17 +477,17 @@ while user_input!=0:
                 sensor_data=""
                 
                 #Cleaning
-                sink_cabinet = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"sink_cabinet:ON"+", "
-                time_lapses.append(random.randint(30,60)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                sink_cabinet.Value = not sink_cabinet.Value; sensor_data=sensor_data+"sink_cabinet:OFF"+", "
-                time_lapses.append(random.randint(3600,2*3600)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                vaccuum_sensor = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"vaccuum_sensor:ON"+", "
-                time_lapses.append(random.randint(3600,4800)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                vaccuum_sensor.Value = not vaccuum_sensor.Value; sensor_data=sensor_data+"vaccuum_sensor:OFF"+", "
-                time_lapses.append(random.randint(60,180)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                sink_cabinet = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"sink_cabinet:ON"+", "
-                time_lapses.append(random.randint(30,60)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                sink_cabinet.Value = not sink_cabinet.Value; sensor_data=sensor_data+"sink_cabinet:OFF"+", "
+                sink_cabinet = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"sink_cabinet:ON"+"; "
+                time_lapses.append(random.randint(30,60)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                sink_cabinet.Value = not sink_cabinet.Value; sensor_data=sensor_data+"sink_cabinet:OFF"+"; "
+                time_lapses.append(random.randint(3600,2*3600)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                vaccuum_sensor = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"vaccuum_sensor:ON"+"; "
+                time_lapses.append(random.randint(3600,4800)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                vaccuum_sensor.Value = not vaccuum_sensor.Value; sensor_data=sensor_data+"vaccuum_sensor:OFF"+"; "
+                time_lapses.append(random.randint(60,180)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                sink_cabinet = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"sink_cabinet:ON"+"; "
+                time_lapses.append(random.randint(30,60)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                sink_cabinet.Value = not sink_cabinet.Value; sensor_data=sensor_data+"sink_cabinet:OFF"+"; "
             
                 time_total=sum(time_lapses)
             
@@ -504,12 +504,12 @@ while user_input!=0:
                 sensor_data=""
                 
                 #Laundry
-                sink_cabinet = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"sink_cabinet:ON"+", "
-                time_lapses.append(random.randint(30,60)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                sink_cabinet.Value = not sink_cabinet.Value; sensor_data=sensor_data+"sink_cabinet:OFF"+", "
-                laundry_sensor = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"laundry_sensor:ON"+", "
-                time_lapses.append(random.randint(60,70)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                laundry_sensor.Value = not laundry_sensor.Value; sensor_data=sensor_data+"laundry_sensor:OFF"+", "
+                sink_cabinet = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"sink_cabinet:ON"+"; "
+                time_lapses.append(random.randint(30,60)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                sink_cabinet.Value = not sink_cabinet.Value; sensor_data=sensor_data+"sink_cabinet:OFF"+"; "
+                laundry_sensor = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"laundry_sensor:ON"+"; "
+                time_lapses.append(random.randint(60,70)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                laundry_sensor.Value = not laundry_sensor.Value; sensor_data=sensor_data+"laundry_sensor:OFF"+"; "
             
                 time_total=sum(time_lapses)
             
@@ -526,12 +526,12 @@ while user_input!=0:
                 sensor_data=""
                 
                 #washing dishes
-                sink_cabinet = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"sink_cabinet:ON"+", "
-                time_lapses.append(random.randint(30,60)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                sink_cabinet.Value = not sink_cabinet.Value; sensor_data=sensor_data+"sink_cabinet:OFF"+", "
-                kitchen_sink = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"kitchen_sink:ON"+", "
-                time_lapses.append(random.randint(30,50)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+", "
-                kitchen_sink.Value = not kitchen_sink.Value; sensor_data=sensor_data+"kitchen_sink:OFF"+", "
+                sink_cabinet = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"sink_cabinet:ON"+"; "
+                time_lapses.append(random.randint(30,60)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                sink_cabinet.Value = not sink_cabinet.Value; sensor_data=sensor_data+"sink_cabinet:OFF"+"; "
+                kitchen_sink = MemoryMap.Instance.GetBit(0,MemoryType.Output); sensor_data=sensor_data+"kitchen_sink:ON"+"; "
+                time_lapses.append(random.randint(30,50)); sensor_data=sensor_data+"t:"+str(time_lapses[-1])+"; "
+                kitchen_sink.Value = not kitchen_sink.Value; sensor_data=sensor_data+"kitchen_sink:OFF"+"; "
             
                 time_total=sum(time_lapses)
             
