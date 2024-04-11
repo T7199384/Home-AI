@@ -60,28 +60,16 @@ dataset = tf.data.Dataset.from_tensor_slices((dense_encoded_sensor_data, activit
 batch_size = 32
 dataset = dataset.shuffle(buffer_size=len(encoded_sensor_data)).batch(batch_size)
 
-#determine unique sensors
-unique_sensors = set()
-for sequence in sequences:
-    for sensor_sequence in sequence:
-        unique_sensors.update(sensor.split(':')[0] for sensor in sensor_sequence.split('; '))
-num_unique_sensors = len(unique_sensors)
-
-
 #defining the RNN
 model = tf.keras.Sequential([
-    layers.Embedding(input_dim=num_unique_sensors, output_dim=64),
-    layers.LSTM(32, return_sequences=True),
-    layers.Dropout(0.2),
-    layers.LSTM(64),
-    layers.Dropout(0.2),
-    layers.Dense(1, activation='sigmoid')
+    tf.keras.layers.Embedding(input_dim=10000, output_dim=32, mask_zero=True),
+    tf.keras.layers.SimpleRNN(32),
+    tf.keras.layers.Dense(1, activation='sigmoid')
 ])
 
 
 #model compiling
-opt = tf.keras.optimizers.Adam(learning_rate=0.0005)
-model.compile(optimizer=opt, loss='binary_crossentropy', metrics=['accuracy'])
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
 #model training
-model.fit(dataset, epochs=20)
+model.fit(dataset, epochs=10)
