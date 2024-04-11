@@ -21,6 +21,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Classification AI RNN - Copy.py" />
     <Compile Include="Classification AI RNN.py" />
     <Compile Include="Classification AI.py" />
     <Compile Include="Connect_IO_AI.py" />
