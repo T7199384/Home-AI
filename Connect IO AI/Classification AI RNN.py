@@ -16,14 +16,6 @@ durations = adl_df['duration(s)'].values
 label_encoder = LabelEncoder()
 activity_labels = label_encoder.fit_transform(adl_df['activity'])
 
-#creating hyperparameter search space
-hyperparameters = {
-    'learning_rate': [0.001, 0.01, 0.1],
-    'num_units': [16, 32, 64],
-    'batch_size': [16, 32, 64]
-}
-
-
 #making fixed length sequences to iterate over the dataset, this will take 100 records from each of the activities as iternations
 sequence_length = 100
 step = 100
@@ -82,6 +74,19 @@ model = tf.keras.Sequential([
 #model compiling
 opt = tf.keras.optimizers.Adam(learning_rate=0.0005)
 model.compile(optimizer=opt, loss='binary_crossentropy', metrics=['accuracy'])
-
+'''''
 #model training
 model.fit(dataset, epochs=20)
+'''''
+for batch in dataset:
+    input_data, labels = batch
+    # Convert TensorFlow tensors to NumPy arrays for easier inspection
+    input_data_np = input_data.numpy()
+    labels_np = labels.numpy()
+    
+    # Print or inspect the NumPy arrays
+    print("Input data shape:", input_data_np.shape)
+    print("Labels shape:", labels_np.shape)
+    # Print or inspect more details as needed
+    print("Input data:", input_data_np)
+    print("Labels:", labels_np)
