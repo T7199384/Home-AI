@@ -57,6 +57,33 @@ def feedback_training(feedbacks):
         data_collator=data_collator,
         train_dataset=train_dataset,
     )
+    
+    # Check Dataset Length
+    print("Length of training dataset:", len(train_dataset))
+
+    # Verify Data Collator
+    print("Data collator:", data_collator)
+
+    # Inspect Training Arguments
+    print("Training arguments:", training_args)
+
+    # Debugging
+    for epoch in range(training_args.num_train_epochs):
+        print(f"Epoch {epoch + 1}")
+        for step, batch in enumerate(train_dataloader):
+            inputs, labels = batch
+            print(f"Batch {step}: Input size: {inputs.size()}, Label size: {labels.size()}")
+
+    # Check Model and Optimizer
+    print("Model:", model)
+    print("Optimizer:", trainer.optimizer)
+
+    # Error Context
+    try:
+        trainer.train()
+    except IndexError as e:
+        print("Index error occurred:", e)
+
     trainer.train()  ###index out of range in self
     
 
