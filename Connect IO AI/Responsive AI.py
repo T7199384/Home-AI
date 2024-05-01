@@ -2,120 +2,57 @@ from unittest.util import _MAX_LENGTH
 from gtts import gTTS
 import pygame
 import os
-from transformers import pipeline, GPT2LMHeadModel, GPT2Tokenizer, TextDataset, DataCollatorForLanguageModeling, Trainer, TrainingArguments
-from sentence_transformers import SentenceTransformer
+import tensorflow as tf
+from sklearn.model_selection import train_test_split
+from transformers import TFGPT2LMHeadModel, GPT2Tokenizer
+from transformers import pipeline
+from tensorflow.keras import layers
 import numpy as np
-import torch
-from torch.utils.data import Dataset
-
-
-class CustomDataset(Dataset):
-    def __init__(self, texts, tokenizer, max_length):
-        self.texts = texts
-        self.tokenizer = tokenizer
-        self.max_length = max_length
-        
-    def __len__(self):
-        return len(self.texts)
-    
-    def __getitem__(self, idx):
-        print("Index:", idx)
-        print("Length of texts:", len(self.texts))
-        
-        text = self.texts[idx]
-        encoding = self.tokenizer(text, padding="max_length", truncation=True, max_length=self.max_length, return_tensors="pt")
-        return {
-            "input_ids": encoding["input_ids"].flatten(),
-            "attention_mask": encoding["attention_mask"].flatten()
-        }
+from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.cluster import KMeans
 
 # Load GPT-2 tokenizer and model
 tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
-tokenizer.add_special_tokens({'pad_token': '[PAD]'})
-tokenizer.pad_token = '[PAD]'
-model = GPT2LMHeadModel.from_pretrained("gpt2")
-
-sentence_bert_model = SentenceTransformer('paraphrase-MiniLM-L6-v2', device='cpu')
-
+gpt2_model = TFGPT2LMHeadModel.from_pretrained("gpt2", from_pt=True)
 text_generator = pipeline("text-generation", model="gpt2")
 
-
 def feedback_training(feedbacks):
-    # Fine-tune the model
-    train_dataset = CustomDataset(feedbacks, tokenizer, 128)
 
-    data_collator = DataCollatorForLanguageModeling(tokenizer=tokenizer, mlm=False)
-    training_args = TrainingArguments(
-        per_device_train_batch_size=4,
-        num_train_epochs=3,
-        logging_dir="./logs",
-        output_dir="./output",
-    )
-    trainer = Trainer(
-        model=model,
-        args=training_args,
-        data_collator=data_collator,
-        train_dataset=train_dataset,
-    )
+    # Prepare the Data
+    # Assuming feedbacks is a list of strings 
+
+    # Tokenize the feedbacks and convert them into numerical representations
+    tokenizer = tf.keras.preprocessing.text.Tokenizer()
+    tokenizer.fit_on_texts(feedbacks)
+    sequences = tokenizer.texts_to_sequences(feedbacks)
+    padded_sequences = tf.keras.preprocessing.sequence.pad_sequences(sequences)
+
+    # Define the Model
+    kmeans = KMeans(n_clusters=1)  # Adjust the number of clusters as needed
+
+    # Fit the Model
+    kmeans.fit(padded_sequences)
+
+    # Get the Centroids (Representative Feedbacks)
+    representative_feedbacks = kmeans.cluster_centers_
     
-    # Check Dataset Length
-    print("Length of training dataset:", len(train_dataset))
+    # Compute the pairwise cosine similarity between all representative feedbacks
+    similarities_matrix = cosine_similarity(padded_sequences)
 
-    # Verify Data Collator
-    print("Data collator:", data_collator)
+    # Compute the average similarity of each feedback with all other feedbacks
+    average_similarities = np.mean(similarities_matrix, axis=1)
 
-    # Inspect Training Arguments
-    print("Training arguments:", training_args)
+    # Find the index of the feedback with the highest average similarity
+    best_feedback_index = np.argmax(average_similarities)
+    best_feedback = feedbacks[best_feedback_index]
 
-    # Debugging
-    for epoch in range(training_args.num_train_epochs):
-        print(f"Epoch {epoch + 1}")
-        for step, batch in enumerate(train_dataloader):
-            inputs, labels = batch
-            print(f"Batch {step}: Input size: {inputs.size()}, Label size: {labels.size()}")
+    return best_feedback
 
-    # Check Model and Optimizer
-    print("Model:", model)
-    print("Optimizer:", trainer.optimizer)
-
-    # Error Context
-    try:
-        trainer.train()
-    except IndexError as e:
-        print("Index error occurred:", e)
-
-    trainer.train()  ###index out of range in self
-    
-
-    # Get the last layer of the fine-tuned model for embeddings
-    last_layer_model = model.transformer.h[-1]
-
-    # Get embeddings for all feedbacks
-    feedback_embeddings = []
-    for feedback in feedbacks:
-        tokenized_input = tokenizer(feedback, return_tensors="pt", padding=True, truncation=True)
-        with torch.no_grad():
-            input_ids = tokenized_input.input_ids.to(torch.int64)  # Convert to torch.int64
-            output = last_layer_model(input_ids)[0][:, 0, :].numpy()  # Use last_layer_model for inference
-            feedback_embeddings.append(output)
-
-    # Calculate similarity scores for each feedback against all other feedbacks
-    similarity_scores = np.zeros((len(feedbacks), len(feedbacks)))
-    for i in range(len(feedbacks)):
-        for j in range(len(feedbacks)):
-            similarity_scores[i, j] = np.dot(feedback_embeddings[i], feedback_embeddings[j].T) / (
-                        np.linalg.norm(feedback_embeddings[i]) * np.linalg.norm(feedback_embeddings[j]))
-
-    # Find the index of the feedback with the highest average similarity score
-    avg_similarity_scores = np.mean(similarity_scores, axis=1)
-    best_feedback_index = np.argmax(avg_similarity_scores)
-    final_feedback = feedbacks[best_feedback_index]
-
-    return final_feedback
 def get_feedback(prompt):
     # Generate response from GPT-3 based on the prompt   
     feedbacks = []
     for _ in range(10):
+        # Use the generate method from the GPT-2 model to generate text
         feedback = text_generator(prompt, max_length=1000, num_return_sequences=1, truncation=True, pad_token_id=text_generator.tokenizer.eos_token_id)[0]['generated_text']
         feedbacks.append(feedback)
         
