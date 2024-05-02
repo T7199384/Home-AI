@@ -59,7 +59,6 @@ for sequence in sequences:
         unique_sensors.update(sensor.split(':')[0] for sensor in sensor_sequence.split('; '))
 num_unique_sensors = len(unique_sensors)
 
-
 #defining the RNN
 model = tf.keras.Sequential([
     layers.Embedding(input_dim=num_unique_sensors, output_dim=64),
@@ -70,23 +69,90 @@ model = tf.keras.Sequential([
     layers.Dense(1, activation='sigmoid')
 ])
 
-
 #model compiling
 opt = tf.keras.optimizers.Adam(learning_rate=0.0005)
 model.compile(optimizer=opt, loss='binary_crossentropy', metrics=['accuracy'])
-'''''
+
 #model training
 model.fit(dataset, epochs=20)
-'''''
-for batch in dataset:
-    input_data, labels = batch
-    # Convert TensorFlow tensors to NumPy arrays for easier inspection
-    input_data_np = input_data.numpy()
-    labels_np = labels.numpy()
+
+
+
+#parcial data on the laundry activity
+partial_sensor_data = "sink_cabinet:ON; t:50; sink_cabinet:OFF; laundry_sensor:ON"
+
+for i in range(5):
+# Encode partial sensor data
+    encoded_partial_sequence = [hash(sensor) % 10000 for sensor in partial_sensor_data.split('; ')]
+
+    # Convert to ragged tensor
+    ragged_partial_sequence = tf.ragged.constant([encoded_partial_sequence])
+
+    # Convert to dense tensor
+    dense_partial_sequence = ragged_partial_sequence.to_tensor(default_value=0)
+
+    # Predict label probabilities
+    predicted_probabilities = model.predict(dense_partial_sequence)
+
+    # Since you're using sigmoid activation in the output layer, the predicted probabilities are for class 1
+    # You can threshold these probabilities to get the predicted labels
+    threshold = 0.5  # You may adjust this threshold based on your application
+    predicted_labels = (predicted_probabilities > threshold).astype(int)
+
+    # Decode the predicted labels using label_encoder
+    decoded_labels = label_encoder.inverse_transform(predicted_labels)
+
+    print("Prediction", i+1, ":", decoded_labels)
+
+#parcial data on the breakfast_cereal activity
+partial_sensor_data = "cabinet_door:ON; t:21; cabinet_door:OFF; t:19; fridge_door:ON; t:77;"
+
+for i in range(5):
+# Encode partial sensor data
+    encoded_partial_sequence = [hash(sensor) % 10000 for sensor in partial_sensor_data.split('; ')]
+
+    # Convert to ragged tensor
+    ragged_partial_sequence = tf.ragged.constant([encoded_partial_sequence])
+
+    # Convert to dense tensor
+    dense_partial_sequence = ragged_partial_sequence.to_tensor(default_value=0)
+
+    # Predict label probabilities
+    predicted_probabilities = model.predict(dense_partial_sequence)
+
+    # Since you're using sigmoid activation in the output layer, the predicted probabilities are for class 1
+    # You can threshold these probabilities to get the predicted labels
+    threshold = 0.5  # You may adjust this threshold based on your application
+    predicted_labels = (predicted_probabilities > threshold).astype(int)
+
+    # Decode the predicted labels using label_encoder
+    decoded_labels = label_encoder.inverse_transform(predicted_labels)
+
+    print("Prediction", i+1, ":", decoded_labels)
     
-    # Print or inspect the NumPy arrays
-    print("Input data shape:", input_data_np.shape)
-    print("Labels shape:", labels_np.shape)
-    # Print or inspect more details as needed
-    print("Input data:", input_data_np)
-    print("Labels:", labels_np)
+activity_messages = {
+"cleaning_dishes": "Tips for cleaning dishes",
+"laundry": "How can I improve washing my clothes in a washing machine?",
+"cleaning": "tips on cleaning up the house faster",
+"gardening": "tips on gardening",
+"making_snack": "what is a good quick snack to eat?",
+"reading": "Can you recommend any books?",
+"working": "I'm working, how can I stay productive?",
+"exercising": "Tips for exercising on a treadmill",
+"watching_tv": "What should I watch?",
+"relaxing": "I am relaxing, what is a good way to relax",
+"sleeping": "I'm going to sleep, please do not disturb me",
+"bathroom_break": "I am using the bathroom",
+"personal_hygiene": "I am going to shower",
+"dinner_pasta": "Tips for cooking pasta",
+"lunch_sandwich": "Good sandwich ideas",
+"breakfast_cereal": "how can I improve my breakfast cereal?",
+}
+
+# Convert decoded_labels to a string
+decoded_labels_str = decoded_labels[0]
+print(decoded_labels_str)
+
+# Accessing message for a specific activity label
+message = activity_messages[decoded_labels_str]
+print(message)
