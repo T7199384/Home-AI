@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>f741bd2e-5ab6-4bf2-a482-2cbd3fc00458</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Responsive AI.py</StartupFile>
+    <StartupFile>Classification AI RNN.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
