@@ -6,10 +6,9 @@ from sklearn.preprocessing import LabelEncoder
 from kerastuner.tuners import RandomSearch
 import importlib.util
 
-#getting dataset
+
 adl_df = pd.read_csv('adl_dataset.csv')
 
-#sensor data and duration extraction
 sensor_data = adl_df['sensor_data'].values
 durations = adl_df['duration(s)'].values
 
@@ -40,10 +39,7 @@ for sequence in sequences:
     encoded_sequence = [hash(sensor) % 10000 for sensor in str(sequence).split('; ')]
     encoded_sensor_data.append(encoded_sequence)
     
-#creating raggedtensor to pad it as a densetensor
 ragged_encoded_sensor_data = tf.ragged.constant(encoded_sensor_data)
-
-#ragged to dense to make a rectangular tensor
 dense_encoded_sensor_data = ragged_encoded_sensor_data.to_tensor(default_value=0)
 
 #converting to tensorflow dataset
@@ -70,11 +66,9 @@ model = tf.keras.Sequential([
     layers.Dense(1, activation='sigmoid')
 ])
 
-#model compiling
 opt = tf.keras.optimizers.Adam(learning_rate=0.0005)
 model.compile(optimizer=opt, loss='binary_crossentropy', metrics=['accuracy'])
 
-#model training
 model.fit(dataset, epochs=20)
 
 
@@ -83,24 +77,16 @@ model.fit(dataset, epochs=20)
 partial_sensor_data = "sink_cabinet:ON; t:50; sink_cabinet:OFF; laundry_sensor:ON"
 
 for i in range(5):
-# Encode partial sensor data
     encoded_partial_sequence = [hash(sensor) % 10000 for sensor in partial_sensor_data.split('; ')]
 
-    # Convert to ragged tensor
     ragged_partial_sequence = tf.ragged.constant([encoded_partial_sequence])
-
-    # Convert to dense tensor
     dense_partial_sequence = ragged_partial_sequence.to_tensor(default_value=0)
 
-    # Predict label probabilities
     predicted_probabilities = model.predict(dense_partial_sequence)
 
-    # Since you're using sigmoid activation in the output layer, the predicted probabilities are for class 1
-    # You can threshold these probabilities to get the predicted labels
-    threshold = 0.5  # You may adjust this threshold based on your application
+    threshold = 0.5
     predicted_labels = (predicted_probabilities > threshold).astype(int)
 
-    # Decode the predicted labels using label_encoder
     decoded_labels = label_encoder.inverse_transform(predicted_labels)
 
     print("Prediction", i+1, ":", decoded_labels)
@@ -109,24 +95,16 @@ for i in range(5):
 partial_sensor_data = "cabinet_door:ON; t:21; cabinet_door:OFF; t:19; fridge_door:ON; t:77;"
 
 for i in range(5):
-# Encode partial sensor data
     encoded_partial_sequence = [hash(sensor) % 10000 for sensor in partial_sensor_data.split('; ')]
 
-    # Convert to ragged tensor
     ragged_partial_sequence = tf.ragged.constant([encoded_partial_sequence])
-
-    # Convert to dense tensor
     dense_partial_sequence = ragged_partial_sequence.to_tensor(default_value=0)
 
-    # Predict label probabilities
     predicted_probabilities = model.predict(dense_partial_sequence)
 
-    # Since you're using sigmoid activation in the output layer, the predicted probabilities are for class 1
-    # You can threshold these probabilities to get the predicted labels
-    threshold = 0.5  # You may adjust this threshold based on your application
+    threshold = 0.5
     predicted_labels = (predicted_probabilities > threshold).astype(int)
 
-    # Decode the predicted labels using label_encoder
     decoded_labels = label_encoder.inverse_transform(predicted_labels)
 
     print("Prediction", i+1, ":", decoded_labels)
@@ -150,11 +128,9 @@ activity_messages = {
 "breakfast_cereal": "how can I improve my breakfast cereal?",
 }
 
-# Convert decoded_labels to a string
 decoded_labels_str = decoded_labels[0]
 print(decoded_labels_str)
 
-# Accessing message for a specific activity label
 message = activity_messages[decoded_labels_str]
 print(message)
 
