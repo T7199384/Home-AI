@@ -2,6 +2,7 @@ from unittest.util import _MAX_LENGTH
 from gtts import gTTS
 import pygame
 import os
+from transformers import pipeline
 import tensorflow as tf
 from sklearn.model_selection import train_test_split
 from transformers import TFGPT2LMHeadModel, GPT2Tokenizer
@@ -11,15 +12,10 @@ import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.cluster import KMeans
 
-# Load GPT-2 tokenizer and model
-tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
-gpt2_model = TFGPT2LMHeadModel.from_pretrained("gpt2", from_pt=True)
-text_generator = pipeline("text-generation", model="gpt2")
-
 def feedback_training(feedbacks):
-
-    # Prepare the Data
-    # Assuming feedbacks is a list of strings 
+    # Load GPT-2 tokenizer and model
+    tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+    gpt2_model = TFGPT2LMHeadModel.from_pretrained("gpt2", from_pt=True)
 
     # Tokenize the feedbacks and convert them into numerical representations
     tokenizer = tf.keras.preprocessing.text.Tokenizer()
@@ -49,6 +45,9 @@ def feedback_training(feedbacks):
     return best_feedback
 
 def get_feedback(prompt):
+    #create text generator
+    text_generator = pipeline("text-generation", model="gpt2")
+
     # Generate response from GPT-3 based on the prompt   
     feedbacks = []
     for _ in range(10):
@@ -91,12 +90,11 @@ def text_to_speech(text):
     # Remove the temporary MP3 file
     os.remove("output.mp3")
 
-while True:
-    """
-    prompt = input("Enter text: ")
-    prompt_strip=prompt.strip()
-    if prompt_strip and  any(char.isalnum() for char in prompt_strip):
-        get_feedback(prompt)
-    """
-    print("Enter text: Cooking steak tips")
-    get_feedback("cooking steak tips")
+def run(message=None):
+    if message:
+        get_feedback("message")
+    else:
+        prompt = input("Enter text: ")
+        prompt_strip=prompt.strip()
+        if prompt_strip and  any(char.isalnum() for char in prompt_strip):
+            get_feedback(prompt)

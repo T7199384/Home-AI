@@ -4,6 +4,7 @@ import tensorflow as tf
 from tensorflow.keras import layers, models
 from sklearn.preprocessing import LabelEncoder
 from kerastuner.tuners import RandomSearch
+import importlib.util
 
 #getting dataset
 adl_df = pd.read_csv('adl_dataset.csv')
@@ -156,3 +157,12 @@ print(decoded_labels_str)
 # Accessing message for a specific activity label
 message = activity_messages[decoded_labels_str]
 print(message)
+
+#import responsive AI script
+script_name = "Responsive AI.py"
+module_name = "Responsive AI"
+spec = importlib.util.spec_from_file_location(module_name, script_name)
+script_module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(script_module)
+
+script_module.run(message)
