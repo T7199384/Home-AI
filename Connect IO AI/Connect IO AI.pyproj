@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>f741bd2e-5ab6-4bf2-a482-2cbd3fc00458</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Classification AI RNN.py</StartupFile>
+    <StartupFile>Classification AI K-means.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,8 +21,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Classification AI RNN - Copy.py" />
-    <Compile Include="Classification AI RNN.py" />
+    <Compile Include="Classification AI K-means.py" />
     <Compile Include="Classification AI.py" />
     <Compile Include="Connect_IO_AI.py" />
     <Compile Include="Responsive AI - HuggingFace.py" />
